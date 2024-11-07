@@ -14,16 +14,17 @@ public class EventosController {
 	@Autowired
 	private EventoRepository er; 
 
-	@RequestMapping("/aulaspi2/form")
+	@RequestMapping("/eventos/form")
+	
 	public String form() {
-		return "formEvento";
+		return "eventos/formEvento";
 	}
 
-	@PostMapping("/aulaspi2")
+	@PostMapping("/eventos")
 	public String adicionar(Evento evento) {
 		
 		System.out.println(evento);
 		er.save(evento);
-		return "EventoAdicionado";
+		return "eventos/EventoAdicionado";
 	}
 }
