@@ -4,18 +4,18 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Evento {
-	
+public class Convidado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	private String local;
+	private String rg;
 
-	private String data;
-	private String horario;
+	@ManyToOne
+	private Evento evento;
 
 	public Long getId() {
 		return id;
@@ -25,7 +25,6 @@ public class Evento {
 		this.id = id;
 	}
 
-
 	public String getNome() {
 		return nome;
 	}
@@ -33,33 +32,27 @@ public class Evento {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
- 
-	public String getLocal() {
-		return local;
+
+	public String getRg() {
+		return rg;
 	}
 
-	public void setLocal(String local) {
-		this.local = local;
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 
-	public String getData() {
-		return data;
+	public Evento getEvento() {
+		return evento;
 	}
 
-	public void setData(String data) {
-		this.data = data;
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+		
 	}
 
-	public String getHorario() {
-		return horario;
-	}
-
-	public void setHorario(String horario) {
-		this.horario = horario;
-	}
 	@Override
 	public String toString() {
-		return "Evento [id=" + id + ", nome=" + nome + ", local=" + local + ", data=" + data + ", horario=" + horario
-				+ "]";
+		return "Convidado [id=" + id + ", nome=" + nome + ", rg=" + rg + ", evento=" + evento + "]";
 	}
+
 }
