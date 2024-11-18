@@ -2,45 +2,51 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
-    <title>Eventos</title>
+<!-- Compiled and minified JavaScript -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<title>Eventos</title>
 </head>
 <body>
- 
- 
- <div th:replace="~{menu :: menu}"></div>
-  <div class="container">
 
 
-    <h1>Lista de Eventos</h1>
+	<div th:replace="~{menu :: menu}"></div>
+	<div class="container">
 
 
-   <table class="highlight">
-   <thead>
-   <tr>
-   <th>ID</th>
-    <th>Nome</th>
-     <th>Local</th>
-      <th>Data</th>
-       <th>Horário</th>
-   </tr>
-   </thead>
-   <tbody>
-    <tr th:each="e : ${eventos}">
-    <td th:text="${e.id}">1</td>
-     <td><a th:href="@{/eventos/{Id}(id=${e.id})}" ><span th:text="${e.nome}">Aniversário de Letícia</span></a></td>
-        <td th:text="${e.local}">Clube</td>
-          <td th:text="${e.data}">30/11/2024</td>
-            <td th:text="${e.horario}">19:00</td>
-   </tr> 
-   </tbody>
-   </table>
-    </div>
+		<h1>Lista de Eventos</h1>
+
+
+		<table class="highlight">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>Local</th>
+					<th>Data</th>
+					<th>Horário</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="e : ${eventos}">
+					<td th:text="${e.id}">1</td>
+					<td><a th:href="@{/eventos/{id}(id=${e.id})}"><span
+							th:text="${e.nome}">Aniversário de Letícia</span></a></td>
+					<td th:text="${e.local}">Clube</td>
+					<td th:text="${e.data}">30/11/2024</td>
+					<td th:text="${e.horario}">19:00</td>
+					<td><a th:href="@{/eventos/{id}/remover(id=${e.id})}"> <i class="material-icons">delete</i></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>
