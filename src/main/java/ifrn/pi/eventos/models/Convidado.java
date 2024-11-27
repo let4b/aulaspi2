@@ -1,5 +1,6 @@
 package ifrn.pi.eventos.models;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,15 +9,17 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Convidado {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String rg;
-
+	
+	
 	@ManyToOne
 	private Evento evento;
 
+	
 	public Long getId() {
 		return id;
 	}
@@ -47,7 +50,6 @@ public class Convidado {
 
 	public void setEvento(Evento evento) {
 		this.evento = evento;
-		
 	}
 
 	@Override
